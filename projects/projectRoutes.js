@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../data/helpers/projectModel");
+const actionsDb = require("../data/helpers/actionModel");
+
 
 router.get("/", (req, res) => {
     db.get()
@@ -47,6 +49,22 @@ router.get("/:id", (req, res)=>{
     })
 });
 
+router.delete("/:id", (req,res)=>{
+    db.remove(req.params.id)
+    .then((projectId) => {
+        if(projectId == 0) 
+        return res.status(404).json({
+            message: "Project does not exist"
+        });
+        res.status(200).json({
+            message: `project with id ${projectId} deleted`
+        });
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+});
+
 router.put("/:id", (req, res)=>{
     const changes = req.body;
     if(!changes) 
@@ -62,6 +80,19 @@ router.put("/:id", (req, res)=>{
         res.status(201).json(updatedProject);
     })
     .catch((err)=>{
+        res.status(500).json({
+            message: "An error has occured"
+        });
+    })
+});
+
+router.get("/:id/actions", (req, res)=>{
+    actionsDb.get()
+    .then((actions) => {
+        actions = actions.filter(action => action.project_id == req.params.id);
+        res.status(200).json(actions);
+    })
+    .catch((err) => {
         res.status(500).json({
             message: "An error has occured"
         });
