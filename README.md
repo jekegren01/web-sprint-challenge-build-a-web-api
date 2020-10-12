@@ -61,10 +61,19 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
+    A key feature is that Node is a JS based api.  This allows for the devolpement of servers using the same language that is used for the front end. Express is asynchronous, and uses npm to install a variety of repositories.
+
 1. Understand and explain the use of Middleware?
+    Middleware is extended code that can be used to make backend devolopment more DRY. If certain code is to be repeated many times, its easier to write middleware to make it easier to follow.
+
 1. The basic principles of the REST architectural style.
+    REST is a structure that lays out a user convention for how resources are requested and responded to in order to create, use, manage, etc.
+
 1. Understand and explain the use of Express Routers.
+    Routers are used to organise code. Typically organized by type given what resource they are connected to.
+
 1. Describe tooling used to manually test the correctness of an API.
+    Insomnia is the backend route tool that we use to test our API's.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -110,6 +119,6 @@ After finishing your required elements, you can push your work further. These go
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo). **Please don't merge your own pull request**
+- [ ] Submit a Pull-Request to merge `<firstName-lastName> Branch into master (student's Repo). **Please don't merge your own pull request**
 - [ ] Add your team lead as a reviewer on the pull-request
 - [ ] Your team lead will count the project as complete after receiving your pull-request
