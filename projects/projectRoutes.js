@@ -57,7 +57,7 @@ router.delete("/:id", (req,res)=>{
             message: "Project does not exist"
         });
         res.status(200).json({
-            message: `project with id ${projectId} deleted`
+            message: `project with id ${req.params.id} deleted`
         });
     })
     .catch((err) => {
